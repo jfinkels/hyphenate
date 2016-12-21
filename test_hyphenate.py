@@ -1,3 +1,8 @@
+# test_hyphenate.py - unit tests for Hyphenate
+#
+# This file is part of Hyphenate. The authors of Hyphenate abandon all
+# claims to copyright, and dedicate it to the public domain.
+"""Unit tests for hyphenating words."""
 from unittest import TestCase
 
 from hyphenate import hyphenate_word

@@ -1,21 +1,15 @@
-"""Hyphenation, using Frank Liang's algorithm.
+# hyphenate.py - hyphenate English words
+#
+# This file is part of Hyphenate. The authors of Hyphenate abandon all
+# claims to copyright, and dedicate it to the public domain.
+"""Hyphenation of English words.
 
-This module provides a single function to hyphenate words. The
-`hyphenate_word` function takes a string (the word to hyphenate), and
-returns a list of parts that can be separated by hyphens.
-
-    >>> hyphenate_word('hyphenation')
-    ['hy', 'phen', 'ation']
-    >>> hyphenate_word('supercalifragilistic')
-    ['su', 'per', 'cal', 'ifrag', 'ilis', 'tic']
-    >>> hyphenate_word('project')
-    ['project']
-
-Ned Batchelder, July 2007.
-This Python code is in the public domain.
+This module contains the main Hyphenation algorithm, originally due to
+Frank Liang. The :func:`hyphenate_word` function takes a string as input
+and returns a list of strings representing the parts of the word between
+which hyphens can be placed.
 
 """
-
 import re
 
 __version__ = '1.1.0.dev0'
