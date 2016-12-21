@@ -512,12 +512,3 @@ hyphenate_word = hyphenator.hyphenate_word
 
 del patterns
 del exceptions
-
-if __name__ == '__main__':
-    import sys
-    if len(sys.argv) > 1:
-        for word in sys.argv[1:]:
-            print('-'.join(hyphenate_word(word)))
-    else:
-        import doctest
-        doctest.testmod(verbose=True)
