@@ -20,3 +20,8 @@ class TestHyphenation(TestCase):
         expected = ['su', 'per', 'cal', 'ifrag', 'ilis', 'tic', 'ex', 'pi',
                     'ali', 'do', 'cious']
         self.assertEqual(computed, expected)
+
+    def test_exception_word(self):
+        computed = hyphenate_word('associate')
+        expected = ['as', 'so', 'ciate']
+        self.assertEqual(computed, expected)
