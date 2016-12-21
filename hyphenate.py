@@ -16,6 +16,18 @@ __version__ = '1.1.0.dev0'
 
 
 class Hyphenator:
+    """An object that hyphenates based on pre-computed patterns.
+
+    `patterns` is a string of whitespace-separated patterns, each of
+    which is a string of characters the form ``a1bc3d4``.
+
+    `exceptions` is a string of whitespace-separated hyphenated strings
+    of the form ``as-so-ciate``. When this object is asked to hyphenate
+    one of these words, it uses the given hyphenation instead of the
+    hyphenation that would have been computed by the standard algorithm.
+
+    """
+
     def __init__(self, patterns, exceptions=''):
         self.tree = {}
         for pattern in patterns.split():
@@ -63,8 +75,8 @@ class Hyphenator:
                         t = t[c]
                         if None in t:
                             p = t[None]
-                            for j in range(len(p)):
-                                points[i+j] = max(points[i+j], p[j])
+                            for j, p_j in enumerate(p):
+                                points[i+j] = max(points[i+j], p_j)
                     else:
                         break
             # No hyphens in the first two chars or the last two.
@@ -79,7 +91,7 @@ class Hyphenator:
         return pieces
 
 
-patterns = (
+PATTERNS = (
     # Knuth and Liang's original hyphenation patterns from classic TeX.
     # In the public domain.
     """
@@ -531,14 +543,14 @@ patterns = (
     z3ian. z3o1phr z2z3w
     """)
 
-exceptions = """
+EXCEPTIONS = """
 as-so-ciate as-so-ciates dec-li-na-tion oblig-a-tory phil-an-thropic present
 presents project projects reci-procity re-cog-ni-zance ref-or-ma-tion
 ret-ri-bu-tion ta-ble
 """
 
-hyphenator = Hyphenator(patterns, exceptions)
+hyphenator = Hyphenator(PATTERNS, EXCEPTIONS)
 hyphenate_word = hyphenator.hyphenate_word
 
-del patterns
-del exceptions
+del PATTERNS
+del EXCEPTIONS
