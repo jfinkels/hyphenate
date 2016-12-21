@@ -17,9 +17,6 @@ Use
 Copyright waiver
 ----------------
 
-Copyright and related rights are waived under via the Creative Commons CC0 1.0
-Universal public domain dedication. See `LICENSE` for more information.
-
 This project is based on [`hyphenate.py`][1] by Ned Batchelder, which was
 placed in the public domain in July 2007.
 
