@@ -8,6 +8,7 @@ This module provides a single function to hyphenate words. The
 ``hyphenate_word`` function takes a string (the word to hyphenate), and
 returns a list of parts that can be separated by hyphens. For example::
 
+    >>> from hyphenate import hyphenate_word
     >>> hyphenate_word('hyphenation')
     ['hy', 'phen', 'ation']
     >>> hyphenate_word('supercalifragilistic')
